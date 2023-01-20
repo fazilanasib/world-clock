@@ -1,11 +1,4 @@
 function updateTime() {
-  let newYork = document.querySelector("#newyork");
-  let newDateElement = newYork.querySelector(".date");
-  let newTimeElement = newYork.querySelector(".time");
-  let newTime = moment().tz("America/New_York");
-  newDateElement.innerHTML = newTime.format("MMMM Do, YYYY");
-  newTimeElement.innerHTML = newTime.format("h:mm:ss [<small>]A[</small>]");
-
   let kabul = document.querySelector("#kabul");
   let kabulDateElement = kabul.querySelector(".date");
   let kabulTimeElement = kabul.querySelector(".time");
