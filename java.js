@@ -20,5 +20,24 @@ function updateTime() {
   dubaiDateElement.innerHTML = dubaiTime.format("MMMM Do, YYYY");
   dubaiTimeElement.innerHTML = dubaiTime.format("h:mm:ss [<small>]A[</small>]");
 }
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimeZone);
+  let cityElement = document.querySelector(".allcity");
+  cityElement.innerHTML = `
+  <div class="cities">
+          <div>
+            <h2>${cityName}</h2>
+            <div class="date">${cityTime.format("MMMM Do, YYYY")}</div>
+          </div>
+          <div class="time">${cityTime.format(
+            "Mh:mm:ss"
+          )}<small>${cityTime.format("A")}</small></div>
+        </div>`;
+}
 updateTime();
 setInterval(updateTime, 1000);
+
+let citiesSelect = document.querySelector("#city");
+citiesSelect.addEventListener("change", updateCity);
