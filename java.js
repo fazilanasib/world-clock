@@ -1,4 +1,13 @@
 function updateTime() {
+  let cancun = document.querySelector("#cancun");
+  let cancunDateElement = cancun.querySelector(".date");
+  let cancunTimeElement = cancun.querySelector(".time");
+  let cancunTime = moment().tz("America/Cancun");
+  cancunDateElement.innerHTML = cancunTime.format("MMMM Do, YYYY");
+  cancunTimeElement.innerHTML = cancunTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+
   let kabul = document.querySelector("#kabul");
   let kabulDateElement = kabul.querySelector(".date");
   let kabulTimeElement = kabul.querySelector(".time");
